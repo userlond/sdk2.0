@@ -21,14 +21,14 @@ class RescheduledCalls extends Base
 
     /**
      * Дата, на которую согласован повторный прозвон
-     * @Type("string)
+     * @Type("string")
      * @var string
      */
     public $date_next;
 
     /**
      * Время, на которое согласован повторный прозвон
-     * @Type("string)
+     * @Type("string")
      * @var string
      */
     public $time_next;
