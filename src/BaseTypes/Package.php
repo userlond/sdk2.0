@@ -17,7 +17,7 @@ class Package extends Base
      * @Type("string")
      * @var string
      */
-    public $packageId;
+    public $package_id;
 
     /**
      * Номер упаковки
