@@ -13,6 +13,13 @@ use JMS\Serializer\Annotation\Type;
 class Package extends Base
 {
     /**
+     * Уникальный номер упаковки в ИС СДЭК
+     * @Type("string")
+     * @var string
+     */
+    public $packageId;
+
+    /**
      * Номер упаковки
      * @Type("string")
      * @var string
