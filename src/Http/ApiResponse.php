@@ -55,22 +55,20 @@ class ApiResponse
                 $this->body = (string)$response->getBody();
             }
 
-            if ($this->status > 299) {
-                $decode_body = json_decode($this->body, true);
-                if (isset($decode_body['error'])) {
-                    $this->errors[] = [
-                        'code' => $decode_body['error'],
-                        'message' => $decode_body['error_description'] ?? $decode_body['message'] ?? 'unknown_error'
-                    ];
-                } elseif (isset($decode_body['errors'])) {
-                    $this->errors = $decode_body['errors'];
-                } elseif (isset($decode_body['requests']) && is_array($decode_body['requests'])) {
-                    foreach ($decode_body['requests'] as $request) {
-                        if (isset($request['errors']) && is_array($request['errors']))
-                            foreach ($request['errors'] as $error) {
-                                $this->errors[] = $error;
-                            }
-                    }
+            $decode_body = json_decode($this->body, true);
+            if (isset($decode_body['error'])) {
+                $this->errors[] = [
+                    'code' => $decode_body['error'],
+                    'message' => $decode_body['error_description'] ?? $decode_body['message'] ?? 'unknown_error'
+                ];
+            } elseif (isset($decode_body['errors'])) {
+                $this->errors = $decode_body['errors'];
+            } elseif (isset($decode_body['requests']) && is_array($decode_body['requests'])) {
+                foreach ($decode_body['requests'] as $request) {
+                    if (isset($request['errors']) && is_array($request['errors']))
+                        foreach ($request['errors'] as $error) {
+                            $this->errors[] = $error;
+                        }
                 }
             }
         }
