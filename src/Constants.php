@@ -47,6 +47,12 @@ class Constants
     public const AUTH_FAIL = 'Authentication is failed, please check your account and secure';
 
     /**
+     * Текст ошибки авторизации
+     * @var string
+     */
+    public const UNAUTHORIZED = 'Unauthorized';
+
+    /**
      * Страхование
      * @var string
      */

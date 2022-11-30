@@ -154,7 +154,8 @@ class Api
             $this->expire = time() + $this->expire - 10;
             return true;
         }
-        throw new AuthException(Constants::AUTH_FAIL);
+        $message = $response->getStatus() === 401 ? Constants::UNAUTHORIZED : Constants::AUTH_FAIL;
+        throw new AuthException($message);
     }
 
     /**
