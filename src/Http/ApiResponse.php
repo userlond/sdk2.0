@@ -63,13 +63,6 @@ class ApiResponse
                 ];
             } elseif (isset($decode_body['errors'])) {
                 $this->errors = $decode_body['errors'];
-            } elseif (isset($decode_body['requests']) && is_array($decode_body['requests'])) {
-                foreach ($decode_body['requests'] as $request) {
-                    if (isset($request['errors']) && is_array($request['errors']))
-                        foreach ($request['errors'] as $error) {
-                            $this->errors[] = $error;
-                        }
-                }
             }
         }
     }
