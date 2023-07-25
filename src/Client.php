@@ -41,12 +41,12 @@ class Client
      * Объект для взаимодействия с API СДЭК
      * @var Api
      */
-    private $http_client;
+    protected $http_client;
 
     /**
      * @var Serializer
      */
-    private $serializer;
+    protected $serializer;
 
     /**
      * @var Orders
